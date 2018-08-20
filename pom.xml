@@ -16,6 +16,8 @@
 		<mule.tools.version>1.2</mule.tools.version>
 		<derby.version>10.14.2.0</derby.version>
 		<activemq.version>5.15.5</activemq.version>
+		<uid>eyugthi006</uid>
+		<pwd></pwd>
 	</properties>
 
 	<build>
@@ -61,16 +63,36 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>2.0</version>
+				<configuration>
+					<deploymentType>cloudhub</deploymentType>
+					<muleVersion>${mule.version}</muleVersion>
+					<username>${uid}</username>
+					<password>${pwd}</password>
+					<workerType>Micro</workerType>
+					<redeploy>true</redeploy>
+					<environment>Sandbox</environment>
+				</configuration>
+				<executions>
+					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
 	<!-- Mule Dependencies -->
 	<dependencies>
-<!-- 		<dependency>
-			<groupId>com.mulesoft.training</groupId>
-			<artifactId>maven-proj2dao-yug</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>com.mulesoft.training</groupId> <artifactId>maven-proj2dao-yug</artifactId> <version>0.0.1-SNAPSHOT</version> </dependency> -->
 		<!-- Xml configuration -->
 		<dependency>
 			<groupId>com.mulesoft.muleesb</groupId>
