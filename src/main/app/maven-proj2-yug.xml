@@ -28,7 +28,7 @@ http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/
 		</db:select>
 		<json:object-to-json-transformer doc:name="Object to JSON" />
         <set-property propertyName="#['content-type']" value="#['application/json']" doc:name="set content type"/>
-		<logger level="INFO" doc:name="Logger" />
+		<logger level="INFO" doc:name="Logger" message="logger payload &gt;&gt; #[payload]"/>
 		<jms:outbound-endpoint connector-ref="Active_MQ" doc:name="JMS" queue="flights" />
 	</flow>
 	<flow name="logFlightsFlow">
