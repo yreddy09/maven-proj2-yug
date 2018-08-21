@@ -43,7 +43,7 @@ local.properties
 # Studio-specific #
 # --------------- #
 .studio/
-target/
+target/*
 !target/test.txt
 src/main/api/.repository/
 mule-project.xml
